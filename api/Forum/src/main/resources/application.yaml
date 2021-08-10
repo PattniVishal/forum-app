@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver    url: jdbc:mysql://localhost:3306/townscript_forum?useSSL=false
+    username: root
+    password: root
+    
+#  jpa:
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        ddl-auto: validate
+#    generate-ddl: true
+          flyway:
+    driver-class-name: com.mysql.cj.jdbc.Driver    url: jdbc:mysql://localhost:3306/townscript_forum
+    schemas: townscript_forum
+    user: root
+    password: root
+    baseline-on-migrate: true
