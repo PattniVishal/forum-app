@@ -1,0 +1,17 @@
+<div class="flex justify-end w-4/5 mx-auto m-2">
+    <button type="button" [routerLink]="['../']"
+        class="bg-green-600 hover:bg-green-900 rounded-md cursor-pointer w-min text-white text-xl px-2">
+        Back</button>
+</div>
+<div *ngIf="question" class="bg-gray-100 flex flex-col rounded-md w-4/5 mx-auto my-4 p-3">
+    <div class="text-xl font-medium">{{ question.title }}</div>
+    <div class="text-base mt-2">{{ question.description }}</div>
+    <hr class="mt-4">
+    <div class="flex flex-col sm:flex-row text-gray-500 sm:justify-end mt-4">
+        <div class="mx-4">asked by @{{ question.username }}</div>
+        <div class="mx-4">posted on {{ question.creationDate }}</div>
+    </div>
+</div>
+<div *ngIf="question" class="flex flex-col w-3/4 mx-auto mt-8">
+    <app-comment-section></app-comment-section>
+</div>

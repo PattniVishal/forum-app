@@ -1,0 +1,9 @@
+<header
+    class="bg-yellow-400 p-1 h-1/6 flex flex-col justify-center items-center sm:flex-row sm:items-center sm:justify-between sm:h-1/6">
+    <div class="flex items-center text-4xl text-white font-bold sm:pl-6">Townscript Forum</div>
+    <div *ngIf="user" class="flex flex-row items-center m-2 sm:mr-8">
+        <div *ngIf="user" class="p-2">@ {{ user.username }}</div>
+        <button *ngIf="user" (click)="onLogoutClicked()"
+            class="bg-gray-700 hover:bg-gray-900 text-white p-2 rounded-md">Logout</button>
+    </div>
+</header>

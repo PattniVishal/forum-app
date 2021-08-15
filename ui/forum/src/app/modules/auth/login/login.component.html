@@ -1,15 +1,17 @@
 <div class="flex flex-col justify-center items-center p-4">
     <h1 class="text-2xl">Login to your Account</h1>
-    <div class="bg-yellow-200 shadow-md rounded-md p-3 my-2 sm:w-72">
+    <div class="bg-yellow-200 shadow-md rounded-md p-3 my-2 w-4/5 sm:w-72">
         <form (ngSubmit)="onLoginClicked(loginForm)" #loginForm="ngForm">
             <label for="email" class="block">Email</label>
-            <input type="text" name="email" ngModel required email class="border w-full rounded-sm">
+            <input type="text" name="email" ngModel required email class="border w-full rounded-sm p-1">
 
             <label for="password" class="block">Password</label>
-            <input type="password" name="password" ngModel required class="border w-full rounded-sm">
+            <input type="password" name="password" ngModel required class="border w-full rounded-sm p-1">
 
-            <button type="submit" class="mt-2 bg-gray-700 hover:bg-gray-900 text-white p-2 rounded-md">Login</button>
+            <span class="block text-xs text-red-700 text-center m-2">{{ errorMsg }}</span>
+
+            <button type="submit" [disabled]="loginForm.invalid" class="mt-2 bg-gray-700 hover:bg-gray-900 text-white p-2 rounded-md">Login</button>
         </form>
     </div>
-    <a href class="text-sm">Don't have an Account ? SignUp</a>
+    <a href [routerLink]="['../register']" class="text-sm">Don't have an Account ? <span class="underline">SignUp</span></a>
 </div>

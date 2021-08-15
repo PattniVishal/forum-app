@@ -1,18 +1,20 @@
 <div class="flex flex-col justify-center items-center p-4">
     <h1 class="text-2xl">Create a new Account</h1>
-    <div class="bg-yellow-200 shadow-md rounded-md p-3 my-2 sm:w-72">
-        <form>
+    <div class="bg-yellow-200 shadow-md rounded-md p-3 my-2 w-4/5 sm:w-72">
+        <form (ngSubmit)="onRegisterClicked(registerForm)" #registerForm="ngForm">
             <label for="email" class="block">Email</label>
-            <input type="text" name="email" class="border w-full rounded-sm">
+            <input type="text" name="email" ngModel required class="border w-full rounded-sm p-1">
 
             <label for="username" class="block">Username</label>
-            <input type="text" name="username" class="border w-full rounded-sm">
+            <input type="text" name="username" ngModel required class="border w-full rounded-sm p-1">
 
             <label for="password" class="block">Password</label>
-            <input type="password" name="password" class="border w-full rounded-sm">
+            <input type="password" name="password" ngModel required class="border w-full rounded-sm p-1">
 
-            <button type="submit" class="mt-2 bg-gray-700 text-white p-2 rounded-md">Register</button>
+            <span [hidden]="errorMsg" class="block text-xs text-red-700 text-center m-2">{{ errorMsg }}</span>
+
+            <button type="submit" [disabled]="registerForm.invalid" class="mt-2 bg-gray-700 text-white p-2 rounded-md">Register</button>
         </form>
     </div>
-    <a href class="text-sm">Already have an Account ? LogIn</a>
+    <a href [routerLink]="['../login']" class="text-sm">Already have an Account ? <span class="underline">LogIn</span></a>
 </div>

@@ -4,7 +4,13 @@
 
 export const environment = {
   production: false,
-  loginURL: "http://localhost:8080/api/v1/users/login"
+  loginURL: "http://localhost:8080/api/v1/users/login",
+  registerURL: "http://localhost:8080/api/v1/users/register",
+  questionListURL: "http://localhost:8080/api/v1/questions" ,
+  addQuestionURL: "http://localhost:8080/api/v1/questions",
+  getQuestionByQuestionIdURL: "http://localhost:8080/api/v1/questions",
+  commentListByQuestionIdURL: "http://localhost:8080/api/v1/comments",
+  addCommentURL: "http://localhost:8080/api/v1/comments"
 };
 
 /*

@@ -1,4 +1,8 @@
 <div class="flex flex-col px-5 my-2">
-    <div class="bg-green-700 text-white text-center text-3xl font-extrabold rounded-md p-1 m-2 cursor-pointer w-11">+</div>
-    <app-question-card class="m-2"></app-question-card>
+    <div class="flex justify-between">
+        <div (click)="addQuestionDialog()"
+            class="bg-green-600 hover:bg-green-700 rounded-md cursor-pointer m-2 text-white text-base font-light p-2">
+            + Add New Question</div>
+    </div>
+    <app-question-card class="m-2" [question]="question" [routerLink]="['../', question.questionId]" *ngFor="let question of questionList"></app-question-card>
 </div>

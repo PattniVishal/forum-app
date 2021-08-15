@@ -1,6 +1,7 @@
 package com.townscript.forum.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.townscript.forum.model.Question;
 import com.townscript.forum.service.QuestionService;
 import com.townscript.forum.util.ResponseBuilder;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1/questions")
 public class QuestionController {
@@ -25,13 +27,14 @@ public class QuestionController {
 		ResponseBuilder responseBuilder = new ResponseBuilder();
 		ApiResponseDTO apiResponse;
 		try {
-			Object data = questionService.getAllQuestions();
+//			Object data = questionService.getAllQuestions();
+			Object data = questionService.getAllQuestionUserJoin();
 			apiResponse = responseBuilder.createSuccessResponse(data, "found all questions.");
 		}
 		catch(Exception e) {
 			apiResponse = responseBuilder.createErrorResponse("ERROR!! questions not found.");
 		}
-		
+			
 		return apiResponse;
 	}
 	
@@ -40,7 +43,8 @@ public class QuestionController {
 		ResponseBuilder responseBuilder = new ResponseBuilder();
 		ApiResponseDTO apiResponse;
 		try {
-			Object data = questionService.getQuestionByQuestionId( Long.parseLong(questionId) );
+//			Object data = questionService.getQuestionByQuestionId( Long.parseLong(questionId) );
+			Object data = questionService.getQuestionUserJoin( Long.parseLong(questionId) );
 			apiResponse = responseBuilder.createSuccessResponse(data, "question found.");
 		}
 		catch(Exception e) {
@@ -65,6 +69,7 @@ public class QuestionController {
 		return apiResponse;
 	}
 	
+	/*
 	@GetMapping("/ques/{questionId}")
 	public ApiResponseDTO loadQuestion(@PathVariable("questionId") String questionId) {
 		ResponseBuilder responseBuilder = new ResponseBuilder();
@@ -79,5 +84,6 @@ public class QuestionController {
 		
 		return apiResponse;
 	}
+	*/
 	
 }

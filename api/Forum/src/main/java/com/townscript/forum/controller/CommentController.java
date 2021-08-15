@@ -1,6 +1,7 @@
 package com.townscript.forum.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,7 @@ import com.townscript.forum.model.Comment;
 import com.townscript.forum.service.CommentService;
 import com.townscript.forum.util.ResponseBuilder;
 
+@CrossOrigin
 @RestController
 @RequestMapping("api/v1/comments")
 public class CommentController {
@@ -25,7 +27,8 @@ public class CommentController {
 		ResponseBuilder responseBuilder = new ResponseBuilder();
 		ApiResponseDTO apiResponse;
 		try {
-			Object data = commentService.getCommentsByQuestionId( Long.parseLong(questionId) );
+//			Object data = commentService.getCommentsByQuestionId( Long.parseLong(questionId) );
+			Object data = commentService.getAllCommentAndUser( Long.parseLong(questionId) );
 			apiResponse = responseBuilder.createSuccessResponse(data, "comments found.");
 		}
 		catch(Exception e) {

@@ -1,1 +1,20 @@
-<p>add-question works!</p>
+<div class="p-3 w-full">
+    <h1 class="text-center">Add New Question</h1>
+    <div>
+        <form (ngSubmit)="onQuestionAdded(addQuestionForm)" #addQuestionForm="ngForm" class="m-2">
+            <label for="question_title" class="block">Question Title</label>
+            <input type="text" name="question_title" ngModel required class="w-full border rounded-sm p-1">
+
+            <label for="question_description" class="block mt-4">Question Description</label>
+            <textarea name="question_description" rows="5" ngModel required
+                class="w-full border rounded-sm p-1"></textarea>
+
+            <span *ngIf="errorMsg" class="text-xs text-red-700">{{ errorMsg }}</span>
+
+            <div class="flex justify-end mt-4">
+                <button [mat-dialog-close]="false" class="bg-gray-200 hover:bg-gray-300 p-2 rounded-md">Cancel</button>
+                <button [mat-dialog-close]="true" type="submit" [disabled]="addQuestionForm.invalid" class="bg-yellow-400 hover:bg-yellow-500 p-2 ml-3 rounded-md">Post</button>
+            </div>
+        </form>
+    </div>
+</div>
